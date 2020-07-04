@@ -1,0 +1,16 @@
+{
+  "name": "pruebanpm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tarea":"node index.js & node index2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "colors": "^1.4.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ejerciciosfueraclase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ejercicio1-TXT.js",
+  "scripts": {
+    "ejercicio-TXT": "tsc ejercicio1-TXT.ts & node ejercicio1-TXT.js",
+    "ejercicio2-TXT": "tsc ejercicio2-TXT.ts & node ejercicio2-TXT.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.21"
+  }
+}

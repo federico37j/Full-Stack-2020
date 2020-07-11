@@ -1,0 +1,14 @@
+{
+  "name": "ejtelevisor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tv":"tsc EjTelevisor/televisor.ts & node EjTelevisor/televisor.js",
+    "auto":"tsc EjAuto/auto.ts & node EjAuto/auto.js",
+    "monitor":"tsc EjMonitor/monitor.ts & node EjMonitor/monitor.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

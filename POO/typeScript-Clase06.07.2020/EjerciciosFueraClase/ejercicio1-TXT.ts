@@ -1,5 +1,6 @@
-//Importación de libreria
+//Importación de librerias
 import * as readlineSync from "readline-sync";
+import * as fs from 'fs';
 
 //Declaración e inicialización de variables
 let long: number;
@@ -7,13 +8,11 @@ let i: number;
 let sistema: number;
 
 //Función para cargar arreglo
-let cargarArreglo = (arreglo: string[]) => {
-    for (i = 0; i < arreglo.length; i++) {
-        arreglo[i] = readlineSync.question("Ingrese una palabra: ");
-
-    }
+let cargarArreglo = () => {
+    let texto: string = fs.readFileSync('nombres.txt', 'utf8');
+    let palabras: string[] = texto.split(' ');
     console.log("Registrado con exito!");
-    console.log(arreglo);
+    return palabras;
 }
 
 //Función para buscar en arreglo
@@ -30,10 +29,8 @@ let buscarArreglo = (arreglo: string[]): number => {
 
 //Función para actualizar en arreglo
 let actualizarPalabra = (arreglo: string[]) => {
-    console.log(arreglo);
     let index: number = buscarArreglo(arreglo);
     arreglo[index] = readlineSync.question("Ingresa una nueva palabra: ");
-    console.log(arreglo);
 }
 
 //Función para eliminar dato
@@ -47,45 +44,39 @@ let eliminarIndex = (arreglo: string[]) => {
     console.log("Así quedaron los datos despues de la eliminación", arreglo);
 }
 
-
+//CONSOLA
 console.log("<----------BIENVENIDO---------->")
+//Cargo los datos del TXT desde el inicio
+let palabras = cargarArreglo();
 console.log("OPCIONES:");
-console.log("(1) Insertar palabra \n(2) Buscar palabra \n(3) Eliminar palabra \n(4) Actualizar palabra \n(5) Salir");
+console.log("(1) Buscar palabra. \n(2) Eliminar palabra. \n(3) Actualizar palabra. \n(4) Salir");
 sistema = readlineSync.questionInt("¿Que desea hacer? ");
 
-//Se le pide al usuario que ingrese la longitud y se crea un arreglo con esa longitud
-long = readlineSync.questionInt("Ingrese la longitud del arreglo: ");
-let palabras = new Array(long);
-
-//Menu
-while (sistema != 5) {
+//MENU
+while (sistema != 4) {
 
     switch (sistema) {
 
         case 1: {
-            cargarArreglo(palabras);
-            break;
-        }
-        case 2: {
+            cargarArreglo();
             let resultado: number = buscarArreglo(palabras);
-            if(resultado >= 0){
+            if (resultado >= 0) {
                 console.log(`La palabra ingresada se encuentra registrada en la posicion ${resultado}.`);
-            }else{
+            } else {
                 console.log(`La palabra ingresada no se encuentra registrada.`);
-
             }
             break;
         }
-        case 3: {
+        case 2: {
             eliminarIndex(palabras)
             break;
         }
-        case 4: {
+        case 3: {
             actualizarPalabra(palabras);
             break;
         }
     }
 
     sistema = readlineSync.questionInt("¿Que desea hacer? ");
-}
+}//FIN
 

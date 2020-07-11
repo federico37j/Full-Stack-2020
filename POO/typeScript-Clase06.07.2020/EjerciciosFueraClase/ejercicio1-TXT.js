@@ -2,17 +2,18 @@
 exports.__esModule = true;
 //Importación de libreria
 var readlineSync = require("readline-sync");
+var fs = require("fs");
 //Declaración e inicialización de variables
 var long;
 var i;
 var sistema;
 //Función para cargar arreglo
-var cargarArreglo = function (arreglo) {
-    for (i = 0; i < arreglo.length; i++) {
-        arreglo[i] = readlineSync.question("Ingrese una palabra: ");
-    }
+var cargarArreglo = function () {
+    var texto = fs.readFileSync('nombres.txt', 'utf8');
+    var palabras = texto.split(' ');
     console.log("Registrado con exito!");
-    console.log(arreglo);
+    console.log(palabras);
+    return palabras;
 };
 //Función para buscar en arreglo
 var buscarArreglo = function (arreglo) {
@@ -43,19 +44,15 @@ var eliminarIndex = function (arreglo) {
     console.log("Así quedaron los datos despues de la eliminación", arreglo);
 };
 console.log("<----------BIENVENIDO---------->");
+var palabras = cargarArreglo();
 console.log("OPCIONES:");
-console.log("(1) Insertar palabra \n(2) Buscar palabra \n(3) Eliminar palabra \n(4) Actualizar palabra \n(5) Salir");
+console.log("(1)Buscar palabra \n(2) Eliminar palabra \n(3) Actualizar palabra \n(4) Salir");
 sistema = readlineSync.questionInt("¿Que desea hacer? ");
-long = readlineSync.questionInt("Ingrese la longitud del arreglo: ");
-var palabras = new Array(long);
 //Menu
-while (sistema != 5) {
+while (sistema != 4) {
     switch (sistema) {
         case 1: {
-            cargarArreglo(palabras);
-            break;
-        }
-        case 2: {
+            cargarArreglo();
             var resultado = buscarArreglo(palabras);
             if (resultado >= 0) {
                 console.log("La palabra ingresada se encuentra registrada en la posicion " + resultado + ".");
@@ -65,11 +62,11 @@ while (sistema != 5) {
             }
             break;
         }
-        case 3: {
+        case 2: {
             eliminarIndex(palabras);
             break;
         }
-        case 4: {
+        case 3: {
             actualizarPalabra(palabras);
             break;
         }

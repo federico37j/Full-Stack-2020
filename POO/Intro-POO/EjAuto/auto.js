@@ -1,11 +1,83 @@
-var auto = /** @class */ (function () {
+"use strict";
+exports.__esModule = true;
+exports.Auto = void 0;
+//Importación de librerias
+var fs = require("fs");
+//Exporto la clase Auto para poder utilizarla en la clase RegistroAutomotor.
+var Auto = /** @class */ (function () {
     //Constructor
-    function auto(marcha, color) {
-        this.enMarcha = marcha;
+    function Auto(marca, mod, color, velocidad, cantidadPuertas) {
+        var _this = this;
+        this.cantPuertasDefecto = 4;
+        //Función para buscar un auto dependiendo de la marca
+        this.buscarAuto = function (nombre) {
+            var dato;
+            var i;
+            for (i = 0; i < _this.autos.length; i++) {
+                dato = _this.autos[i].getMarca();
+                if (dato == nombre) {
+                    _this.indice = i;
+                    return _this.autos[i];
+                }
+            }
+        };
+        //Función para crear los objetos de tipo auto e ingresarlos en el arreglo "autos"
+        this.darAlta = function (marca, modelo, color, velocidadMax) {
+            _this.autos.push(new Auto(marca, modelo, color, velocidadMax));
+        };
+        //Función para trae los datos del TXT usando import * as fs from 'fs'
+        this.leerArchivos = function () {
+            _this.texto = fs.readFileSync('EjAuto/auto.txt', 'utf8');
+            _this.palabrasPrimero = _this.texto.split('\r\n');
+        };
+        //Función para que mediante el arreglo que vino del txt crear los objetos de tipo Auto
+        this.cambiarObjeto = function () {
+            _this.leerArchivos();
+            var i = 0;
+            for (i; i < _this.palabrasPrimero.length; i++) {
+                _this.palabrasSegundo = _this.palabrasPrimero[i].split(",");
+                _this.autos.push(new Auto(_this.palabrasSegundo[0], Number(_this.palabrasSegundo[1]), _this.palabrasSegundo[2], Number(_this.palabrasSegundo[3])));
+            }
+        };
+        //Función que recorre el arreglo de autos y lo muestra por consola
+        this.listarAutos = function () {
+            for (var i = 0; i < _this.autos.length; i++) {
+                if (_this.autos[i] != null) {
+                    console.log(_this.autos[i].toString());
+                }
+            }
+        };
+        //Función para actualizar la marca usando la función setMarca
+        this.actualizar = function (nombre) {
+            _this.setMarca(nombre);
+        };
+        //Función para eliminar un auto siempre y cuando antes haya sido buscado por la función "buscarAuto"
+        this.eliminarIndex = function () {
+            var i;
+            for (i = _this.indice; i < _this.autos.length - 1; i++) {
+                _this.autos[i] = _this.autos[i + 1];
+            }
+            _this.autos[i] = null;
+        };
+        //Función toString que devuelve Marca/Modelo/Color/VelocidadMax
+        this.toString = function () {
+            return "Marca: " + _this.marca + ", Modelo: " + _this.modelo + ", Color: " + _this.color + ", Velocidad maxima: " + _this.velocidadMax + ".";
+        };
+        this.marca = marca;
+        this.modelo = mod;
         this.color = color;
+        this.velocidadMax = velocidad;
+        this.autos = [];
+        //La cantidad de puertas es un parámetro opcional, sino se carga en el constructor queda por defecto con 4 ruedas
+        if (cantidadPuertas == undefined) {
+            this.cantidadPuertas = this.cantPuertasDefecto;
+        }
+        else {
+            this.cantidadPuertas = cantidadPuertas;
+        }
     }
-    //Funciones
-    auto.prototype.arrancar = function () {
+    //Función para poner en marcha el auto
+    Auto.prototype.arrancar = function () {
         if (this.enMarcha) {
             this.enMarcha = false;
         }
@@ -13,25 +85,38 @@ var auto = /** @class */ (function () {
             this.enMarcha = true;
         }
     };
-    auto.prototype.cantRuedas = function (numRuedas) {
+    //Funciones Get y Set
+    Auto.prototype.setCantRuedas = function (numRuedas) {
         this.cantidadRuedas = numRuedas;
     };
-    auto.prototype.cantPuertas = function (numPuertas) {
+    Auto.prototype.setCantPuertas = function (numPuertas) {
         this.cantidadPuertas = numPuertas;
     };
-    auto.prototype.elegirColor = function (color) {
+    Auto.prototype.setElegirColor = function (color) {
         this.color = color;
     };
-    auto.prototype.velocidad = function (velocidad) {
+    Auto.prototype.setVelocidad = function (velocidad) {
         this.velocidadMax = velocidad;
     };
-    return auto;
-}());
+    Auto.prototype.getMarca = function () {
+        return this.marca;
+    };
+    Auto.prototype.setMarca = function (marca) {
+        this.marca = marca;
+    };
+    return Auto;
+}()); //FIN CLASE AUTO
+exports.Auto = Auto;
+/*
 //OBJETO AUTO
-var marchaa = true;
-var colore = "Rojo";
-var ruedas = 4;
+let marchaa: boolean = true;
+let colore: string = "Rojo";
+let ruedas: number = 4;
+
 //Creo un objeto "miAuto" de la clase Auto
-var miAuto = new auto(marchaa, colore);
+let miAuto = new Auto(marchaa,colore);
+
 miAuto.cantRuedas(ruedas);
+
 console.log(miAuto);
+*/

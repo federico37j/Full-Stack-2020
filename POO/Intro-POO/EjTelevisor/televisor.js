@@ -1,8 +1,33 @@
+"use strict";
+exports.__esModule = true;
+var Decodificador = /** @class */ (function () {
+    //Constructor
+    function Decodificador(volumen, canal) {
+        this.volumenActual = volumen;
+        this.canalActual = canal;
+    }
+    //Funciones
+    Decodificador.prototype.cambiarCanal = function (canal) {
+        this.canalActual = canal;
+    };
+    Decodificador.prototype.subirCanal = function () {
+        this.canalActual = this.canalActual + 1;
+    };
+    Decodificador.prototype.bajarCanal = function () {
+        this.canalActual = this.canalActual - 1;
+    };
+    Decodificador.prototype.subirVolumen = function () {
+        this.volumenActual = this.volumenActual + 1;
+    };
+    Decodificador.prototype.bajarVolumen = function () {
+        this.volumenActual = this.volumenActual - 1;
+    };
+    return Decodificador;
+}());
 var Televisor = /** @class */ (function () {
     //Constructor
-    function Televisor(volumenInicial, canalInicial) {
-        this.volumenActual = volumenInicial;
-        this.canalActual = canalInicial;
+    function Televisor(decodificador) {
+        this.decodificador = decodificador;
         this.estaPrendido = false;
     }
     //Funciones
@@ -12,28 +37,40 @@ var Televisor = /** @class */ (function () {
         else
             this.estaPrendido = true;
     };
-    Televisor.prototype.subirVolumen = function () {
-        this.volumenActual = this.volumenActual + 1;
-    };
-    Televisor.prototype.bajarVolumen = function () {
-        this.volumenActual = this.volumenActual - 1;
+    Televisor.prototype.cambiarCanal = function (canal) {
+        if (this.estaPrendido) {
+            this.decodificador.cambiarCanal(canal);
+        }
     };
     Televisor.prototype.subirCanal = function () {
-        this.canalActual = this.canalActual + 1;
+        if (this.estaPrendido) {
+            this.decodificador.subirCanal();
+        }
     };
     Televisor.prototype.bajarCanal = function () {
-        this.canalActual = this.canalActual - 1;
+        if (this.estaPrendido) {
+            this.decodificador.bajarCanal();
+        }
     };
-    Televisor.prototype.elegirCanal = function (canal) {
-        this.canalActual = canal;
+    Televisor.prototype.subirVolumen = function () {
+        if (this.estaPrendido) {
+            this.decodificador.subirVolumen();
+        }
+    };
+    Televisor.prototype.bajarVolumen = function () {
+        if (this.estaPrendido) {
+            this.decodificador.bajarVolumen();
+        }
     };
     return Televisor;
 }());
 //OBJETO TELEVISOR
 var volumenInicial = 1;
 var canalInicial = 4;
+//Creo un objeto "decodificador" de la clase Decodificador
+var decodificador = new Decodificador(volumenInicial, canalInicial);
 //Creo un objeto "miTelevisor" de la clase Televisor
-var miTelevisor = new Televisor(volumenInicial, canalInicial);
-miTelevisor.prenderApagar();
-miTelevisor.bajarVolumen();
-console.log(miTelevisor);
+var primerTelevisor = new Televisor(decodificador);
+primerTelevisor.prenderApagar();
+primerTelevisor.cambiarCanal(20);
+console.log(primerTelevisor);

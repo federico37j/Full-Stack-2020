@@ -1,4 +1,4 @@
-class monitor {
+class Monitor {
     //Variables
     private estaPrendido: boolean;
     private volumenActual: number;
@@ -39,7 +39,7 @@ let volumenMonitor: number = 5;
 let resolucion: string = "1600 x 900";
 
 //Creo un objeto "miMonitor" de la clase monitor
-let miMonitor = new monitor(volumenMonitor,resolucion);
+let miMonitor = new Monitor(volumenMonitor,resolucion);
 
 miMonitor.prendidoApagado();
 

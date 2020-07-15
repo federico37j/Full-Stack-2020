@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-//Importación de libreria
+//Importación de librerias
 var readlineSync = require("readline-sync");
 var fs = require("fs");
 //Declaración e inicialización de variables
@@ -12,7 +12,6 @@ var cargarArreglo = function () {
     var texto = fs.readFileSync('nombres.txt', 'utf8');
     var palabras = texto.split(' ');
     console.log("Registrado con exito!");
-    console.log(palabras);
     return palabras;
 };
 //Función para buscar en arreglo
@@ -28,10 +27,8 @@ var buscarArreglo = function (arreglo) {
 };
 //Función para actualizar en arreglo
 var actualizarPalabra = function (arreglo) {
-    console.log(arreglo);
     var index = buscarArreglo(arreglo);
     arreglo[index] = readlineSync.question("Ingresa una nueva palabra: ");
-    console.log(arreglo);
 };
 //Función para eliminar dato
 var eliminarIndex = function (arreglo) {
@@ -43,12 +40,14 @@ var eliminarIndex = function (arreglo) {
     arreglo[i] = null;
     console.log("Así quedaron los datos despues de la eliminación", arreglo);
 };
+//CONSOLA
 console.log("<----------BIENVENIDO---------->");
+//Cargo los datos del TXT desde el inicio
 var palabras = cargarArreglo();
 console.log("OPCIONES:");
-console.log("(1)Buscar palabra \n(2) Eliminar palabra \n(3) Actualizar palabra \n(4) Salir");
+console.log("(1) Buscar palabra. \n(2) Eliminar palabra. \n(3) Actualizar palabra. \n(4) Salir");
 sistema = readlineSync.questionInt("¿Que desea hacer? ");
-//Menu
+//MENU
 while (sistema != 4) {
     switch (sistema) {
         case 1: {
@@ -72,4 +71,4 @@ while (sistema != 4) {
         }
     }
     sistema = readlineSync.questionInt("¿Que desea hacer? ");
-}
+} //FIN

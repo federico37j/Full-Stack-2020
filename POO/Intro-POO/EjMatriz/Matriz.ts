@@ -18,7 +18,7 @@ class Matriz {
     }
 
     //Función para cargar la Matriz con numeros aleatorios
-    public llenarConAleatorios() {
+    public llenarConAleatorios(): void {
         let i: number;
         let j: number;
         for (i = 0; i < this.matriz.length; i++) {
@@ -29,7 +29,7 @@ class Matriz {
     }
 
     //Función para crear Matriz usando un for
-    public crearMatriz() {
+    public crearMatriz(): void {
         let i: number = 0;
         for (i; i < this.matriz.length; i++) {
             this.matriz[i] = new Array(this.columna);
@@ -37,14 +37,14 @@ class Matriz {
     }
 
     //Función para consultar Filas/Columnas y contenido de Matriz
-    public getConsulta() {
+    public getConsulta(): void {
         console.log("Filas: ", this.matriz.length);
         console.log("Columnas: ", this.matriz[0].length);
         console.log(this.matriz);
     }
 
     //Función para consultar que hay en una posición especifica
-    public get(x: number, y: number) {
+    public get(x: number, y: number): Matriz[] {
         return this.matriz[x][y];
     }
 

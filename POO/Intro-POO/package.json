@@ -9,6 +9,7 @@
     "monitor": "tsc EjMonitor/monitor.ts & node EjMonitor/monitor.js",
     "matriz": "tsc EjMatriz/Matriz.ts & node EjMatriz/Matriz.js",
     "registroAutomotor": "tsc EjAuto/registroAutomotor.ts & node EjAuto/registroAutomotor.js",
+    "registroAutUltimaClase": "tsc EjRegistroAutomotor/registroAutomotor.ts & node EjRegistroAutomotor/registroAutomotor.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

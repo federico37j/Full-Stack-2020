@@ -10,11 +10,13 @@
     "matriz": "tsc EjMatriz/Matriz.ts & node EjMatriz/Matriz.js",
     "registroAutomotor": "tsc EjAuto/registroAutomotor.ts & node EjAuto/registroAutomotor.js",
     "registroAutUltimaClase": "tsc EjRegistroAutomotor/registroAutomotor.ts & node EjRegistroAutomotor/registroAutomotor.js",
+    "libros": "tsc EjLibro/gestorLibros.ts & node EjLibro/gestorLibros.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^14.0.22"
+    "@types/node": "^14.0.22",
+    "taybl": "^1.1.1"
   }
 }

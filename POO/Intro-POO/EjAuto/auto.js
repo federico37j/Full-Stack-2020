@@ -107,16 +107,30 @@ var Auto = /** @class */ (function () {
     return Auto;
 }()); //FIN CLASE AUTO
 exports.Auto = Auto;
-/*
 //OBJETO AUTO
-let marchaa: boolean = true;
-let colore: string = "Rojo";
-let ruedas: number = 4;
-
+var marca = "NUEVA";
+var modelo = 2020;
+var color = "Negro";
+var velMax = 210;
 //Creo un objeto "miAuto" de la clase Auto
-let miAuto = new Auto(marchaa,colore);
-
-miAuto.cantRuedas(ruedas);
-
-console.log(miAuto);
-*/
+var miAuto = new Auto(marca, modelo, color, velMax);
+console.log();
+var Taybl_1 = require("Taybl");
+var object = {
+    files: [
+        {
+            fileName: "file name1",
+            invalid: [
+                { type: "type name1", count: 6, "line numbers": "7, 18" },
+                { type: "type name2", count: 2, "line numbers": "17, 9" }
+            ]
+        },
+    ]
+};
+var taybl = new Taybl_1["default"](object);
+taybl
+    .withHorizontalLineStyle("-")
+    .withVerticalLineStyle("|")
+    .withNumberOfSpacesAtStartOfColumns(1)
+    .withNumberOfSpacesAtEndOfColumns(1)
+    .print();

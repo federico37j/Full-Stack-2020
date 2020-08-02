@@ -132,16 +132,13 @@ export class Auto {
 
 }//FIN CLASE AUTO
 
-/*
 //OBJETO AUTO
-let marchaa: boolean = true;
-let colore: string = "Rojo";
-let ruedas: number = 4;
+let marca: string = "NUEVA";
+let modelo: number = 2020;
+let color: string = "Negro";
+let velMax: number = 210;
 
 //Creo un objeto "miAuto" de la clase Auto
-let miAuto = new Auto(marchaa,colore);
+let miAuto = new Auto(marca, modelo, color, velMax);
+console.log();
 
-miAuto.cantRuedas(ruedas);
-
-console.log(miAuto);
-*/

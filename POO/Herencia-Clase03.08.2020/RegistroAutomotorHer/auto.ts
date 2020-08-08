@@ -5,11 +5,7 @@ import { Vehiculo } from "./vehiculo";
 export class Auto extends Vehiculo {
 
     public constructor(marca: string, mod: number, color: string, velocidad: number, cantidadPuertas?: number) {
-        super();
-        this.marca = marca;
-        this.modelo = mod;
-        this.color = color;
-        this.velocidadMax = velocidad;
+        super(marca, mod, color, velocidad);
         this.cantidadRuedas = 4;
 
         //La variable cantidadPuertas es un parámetro opcional, sino se carga en el constructor queda por defecto lo que contenga "puertasDefecto".

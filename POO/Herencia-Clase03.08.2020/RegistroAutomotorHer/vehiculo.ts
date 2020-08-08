@@ -8,7 +8,11 @@ export class Vehiculo {
     protected marca: string;
     protected velocidadMax: number;
 
-    public constructor() {
+    public constructor(marca: string, mod: number, color: string, velocidad: number) {
+        this.marca = marca;
+        this.modelo = mod;
+        this.color = color;
+        this.velocidadMax = velocidad;
         this.enMarcha = false;
     }
 

@@ -7,13 +7,9 @@ export class Moto extends Vehiculo {
     private cascoPuesto: boolean;
 
     public constructor(marca: string, mod: number, color: string, velocidad: number) {
-        super();
-        this.marca = marca;
-        this.modelo = mod;
-        this.color = color;
-        this.velocidadMax = velocidad;
+        super(marca, mod, color, velocidad);
+       
         this.cantidadRuedas = 2;
-
         this.cascoPuesto = false;
     }
 

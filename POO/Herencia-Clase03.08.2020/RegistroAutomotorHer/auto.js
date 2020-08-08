@@ -20,11 +20,7 @@ var vehiculo_1 = require("./vehiculo");
 var Auto = /** @class */ (function (_super) {
     __extends(Auto, _super);
     function Auto(marca, mod, color, velocidad, cantidadPuertas) {
-        var _this = _super.call(this) || this;
-        _this.marca = marca;
-        _this.modelo = mod;
-        _this.color = color;
-        _this.velocidadMax = velocidad;
+        var _this = _super.call(this, marca, mod, color, velocidad) || this;
         _this.cantidadRuedas = 4;
         //La variable cantidadPuertas es un parámetro opcional, sino se carga en el constructor queda por defecto lo que contenga "puertasDefecto".
         if (cantidadPuertas != undefined) {

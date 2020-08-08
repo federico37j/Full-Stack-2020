@@ -2,7 +2,11 @@
 exports.__esModule = true;
 exports.Vehiculo = void 0;
 var Vehiculo = /** @class */ (function () {
-    function Vehiculo() {
+    function Vehiculo(marca, mod, color, velocidad) {
+        this.marca = marca;
+        this.modelo = mod;
+        this.color = color;
+        this.velocidadMax = velocidad;
         this.enMarcha = false;
     }
     //Funciones Get y Set

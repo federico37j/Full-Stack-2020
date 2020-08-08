@@ -21,7 +21,7 @@ class RegistroAutomotor {
         this.cambiarAObjeto('RegistroAutomotorHer/auto.txt');
     }
 
-    //Con esta función se traen los datos de la función leerArchivos y se crean los objetos de tipo vehiculo.
+    //Con esta función se traen los datos de la función leerArchivos y se crean los objetos de tipo vehículo.
     public cambiarAObjeto(urlFS: string): void {
         this.txtPorFila = this.lectorArchivos.leerArchivos(urlFS);
         let i: number = 0;
@@ -31,6 +31,7 @@ class RegistroAutomotor {
         }
     }
 
+    //Con esta función se crean los objetos de tipo auto/moto/camión
     public darAltaVehiculo(input: number): void {
         switch (input) {
             case 1:
@@ -71,12 +72,12 @@ let registroAutomotor = new RegistroAutomotor(lectorArchivos);
 let input: number = readlineSync.questionInt("OPCIONES:\n(1) DAR ALTA:\n(2) LISTAR\n(3) SALIR\nTu respuesta: ");
 let salir: boolean = false;
 
-//Menú
+//MENÚ
 while (salir != true) {
     switch (input) {
 
         case 1:
-            registroAutomotor.darAltaVehiculo(readlineSync.questionInt("DAR ALTA\n(1) AUTOS\n(2) MOTOS\n(3) CAMIONES\nTu respuesta: "));
+            registroAutomotor.darAltaVehiculo(readlineSync.questionInt("DAR ALTA\n(1) AUTO\n(2) MOTO\n(3) CAMIÓN\nTu respuesta: "));
             break;
 
         case 2:

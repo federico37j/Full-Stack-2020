@@ -20,11 +20,7 @@ var vehiculo_1 = require("./vehiculo");
 var Moto = /** @class */ (function (_super) {
     __extends(Moto, _super);
     function Moto(marca, mod, color, velocidad) {
-        var _this = _super.call(this) || this;
-        _this.marca = marca;
-        _this.modelo = mod;
-        _this.color = color;
-        _this.velocidadMax = velocidad;
+        var _this = _super.call(this, marca, mod, color, velocidad) || this;
         _this.cantidadRuedas = 2;
         _this.cascoPuesto = false;
         return _this;

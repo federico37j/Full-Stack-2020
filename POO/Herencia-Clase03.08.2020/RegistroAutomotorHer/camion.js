@@ -20,12 +20,8 @@ var vehiculo_1 = require("./vehiculo");
 var Camion = /** @class */ (function (_super) {
     __extends(Camion, _super);
     function Camion(marca, mod, color, velocidad, carga, cantidad) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, marca, mod, color, velocidad) || this;
         _this.cantAcopladosDefault = 0;
-        _this.marca = marca;
-        _this.modelo = mod;
-        _this.color = color;
-        _this.velocidadMax = velocidad;
         _this.cargaToneladas = carga;
         _this.cantidadRuedas = 4;
         if (cantidad != undefined) {

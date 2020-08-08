@@ -9,11 +9,7 @@ export class Camion extends Vehiculo {
     private cantAcopladosDefault: number = 0;
 
     public constructor(marca: string, mod: number, color: string, velocidad: number, carga: number, cantidad?: number) {
-        super();
-        this.marca = marca;
-        this.modelo = mod;
-        this.color = color;
-        this.velocidadMax = velocidad;
+        super(marca, mod, color, velocidad);
         this.cargaToneladas = carga;
         this.cantidadRuedas = 4;
 

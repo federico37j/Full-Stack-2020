@@ -4,8 +4,8 @@ class TelefonoConRadio extends Telefono {
     //Declaración de variables
     private frecuenciaActual: number;
 
-    constructor(frecuencia: number) {
-        super();
+    public constructor(frecuencia: number, bateria: number) {
+        super(bateria);
         this.frecuenciaActual = frecuencia;
     }
 
@@ -13,14 +13,12 @@ class TelefonoConRadio extends Telefono {
         return this.frecuenciaActual;
     }
 
-    public getFrecuencia(): number {
-        return this.frecuenciaActual;
-    }
 }
 
 let frecuencia = 1500;
-let miCel = new TelefonoConRadio(frecuencia);
-miCel.setBateria(4000);
+let bateria: number = 4000;
+let miCel = new TelefonoConRadio(frecuencia, bateria);
 miCel.prenderApagar();
-console.log(miCel.getFrecuencia(), "MHz");
+miCel.setBateria(4000);
+console.log(miCel.verFrecuenciaActual(), "MHz");
 console.log(miCel);

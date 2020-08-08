@@ -14,15 +14,17 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var telefono_1 = require("./telefono");
+var camara_1 = require("./camara");
 var TelefonoConCamara = /** @class */ (function (_super) {
     __extends(TelefonoConCamara, _super);
-    function TelefonoConCamara(pixel) {
-        var _this = _super.call(this) || this;
+    function TelefonoConCamara(pixel, bateria) {
+        var _this = _super.call(this, bateria) || this;
+        _this.camara = new camara_1.Camara;
         _this.pixeles = pixel;
         return _this;
     }
     TelefonoConCamara.prototype.sacarFoto = function () {
-        console.log("FOTO");
+        this.camara.sacarFoto();
     };
     TelefonoConCamara.prototype.getCantidadPixeles = function () {
         return this.pixeles;
@@ -30,8 +32,10 @@ var TelefonoConCamara = /** @class */ (function (_super) {
     return TelefonoConCamara;
 }(telefono_1.Telefono));
 var pixeles = 48;
-var miCel = new TelefonoConCamara(pixeles);
-miCel.mandarMensaje();
-miCel.sacarFoto();
+var bateria = 4000;
+var miCel = new TelefonoConCamara(pixeles, bateria);
+miCel.prenderApagar();
+miCel.mandarMensaje("Mensaje", 251561251);
 console.log("La camara contiene", miCel.getCantidadPixeles(), "pixeles");
+miCel.sacarFoto();
 console.log(miCel);

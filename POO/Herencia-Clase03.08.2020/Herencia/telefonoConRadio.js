@@ -16,22 +16,20 @@ exports.__esModule = true;
 var telefono_1 = require("./telefono");
 var TelefonoConRadio = /** @class */ (function (_super) {
     __extends(TelefonoConRadio, _super);
-    function TelefonoConRadio(frecuencia) {
-        var _this = _super.call(this) || this;
+    function TelefonoConRadio(frecuencia, bateria) {
+        var _this = _super.call(this, bateria) || this;
         _this.frecuenciaActual = frecuencia;
         return _this;
     }
     TelefonoConRadio.prototype.verFrecuenciaActual = function () {
         return this.frecuenciaActual;
     };
-    TelefonoConRadio.prototype.getFrecuencia = function () {
-        return this.frecuenciaActual;
-    };
     return TelefonoConRadio;
 }(telefono_1.Telefono));
 var frecuencia = 1500;
-var miCel = new TelefonoConRadio(frecuencia);
-miCel.setBateria(4000);
+var bateria = 4000;
+var miCel = new TelefonoConRadio(frecuencia, bateria);
 miCel.prenderApagar();
-console.log(miCel.getFrecuencia(), "MHz");
+miCel.setBateria(4000);
+console.log(miCel.verFrecuenciaActual(), "MHz");
 console.log(miCel);

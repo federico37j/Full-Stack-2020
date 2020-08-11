@@ -10,13 +10,19 @@ import { Camion } from "./camion";
 
 class RegistroAutomotor {
     //Declaración de variables
-    private lectorArchivos: LectorArch;
-    private vehiculos: Vehiculo[];
     private txtPorFila: string[];
     private txtObjeto: string[];
+    private vehiculos: Vehiculo[];
+    private auto: Auto;
+    private moto: Moto;
+    private camion: Camion;
+    private lectorArchivos: LectorArch;
 
-    public constructor(lectorArchivos: LectorArch) {
+    public constructor(lectorArchivos: LectorArch, auto: Auto, moto: Moto, camion: Camion) {
         this.lectorArchivos = lectorArchivos;
+        this.auto = auto;
+        this.moto = moto;
+        this.camion = camion;
         this.vehiculos = [];
         this.cambiarAObjeto('RegistroAutomotorHer/auto.txt');
     }
@@ -35,20 +41,21 @@ class RegistroAutomotor {
     public darAltaVehiculo(input: number): void {
         switch (input) {
             case 1:
-                this.vehiculos.push(new Auto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "),
+                this.vehiculos.push(this.auto.darAltaAuto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "),
                     readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "),
                     readlineSync.questionInt("(5) Ingrese la cantidad de puertas: ")));
                 break;
 
             case 2:
-                this.vehiculos.push(new Moto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "),
-                    readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: ")));
+                this.vehiculos.push(this.moto.darAltaMoto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "),
+                    readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: ")
+                    , readlineSync.questionInt("(5) Ingrese la cilindrada: ")));
                 break;
 
             case 3:
-                this.vehiculos.push(new Camion(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "),
+                this.vehiculos.push(this.camion.darAltaCamion(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "),
                     readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "),
-                    readlineSync.questionInt("(5) Ingrese la carga maxima en toneladas: "),readlineSync.questionInt("(6) Ingrese cantidad de acoplados: ")));
+                    readlineSync.questionInt("(5) Ingrese la carga maxima en toneladas: "), readlineSync.questionInt("(6) Ingrese cantidad de acoplados: ")));
                 break;
         }
     }
@@ -67,7 +74,10 @@ class RegistroAutomotor {
 }//FIN CLASE REGISTROAUTOMOTOR
 
 let lectorArchivos = new LectorArch();
-let registroAutomotor = new RegistroAutomotor(lectorArchivos);
+let auto = new Auto("",0,"",0);
+let moto = new Moto("",0,"",0,0);
+let camion = new Camion ("",0,"",0,0);
+let registroAutomotor = new RegistroAutomotor(lectorArchivos,auto,moto,camion);
 
 let input: number = readlineSync.questionInt("OPCIONES:\n(1) DAR ALTA:\n(2) LISTAR\n(3) SALIR\nTu respuesta: ");
 let salir: boolean = false;

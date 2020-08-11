@@ -5,10 +5,11 @@ import { Vehiculo } from "./vehiculo";
 export class Moto extends Vehiculo {
     //Declaración de variables
     private cascoPuesto: boolean;
+    private cilindrada: number;
 
-    public constructor(marca: string, mod: number, color: string, velocidad: number) {
+    public constructor(marca: string, mod: number, color: string, velocidad: number, cilindrada: number) {
         super(marca, mod, color, velocidad);
-       
+        this.cilindrada = cilindrada;
         this.cantidadRuedas = 2;
         this.cascoPuesto = false;
     }
@@ -20,6 +21,10 @@ export class Moto extends Vehiculo {
         } else {
             console.log("Pónganse el casco y vuelva a intentar");
         }
+    }
+
+    public darAltaMoto(marca: string, mod: number, color: string, velocidad: number, cilindrada: number): Moto {
+        return new Moto(marca, mod, color, velocidad, cilindrada);
     }
 
     public tocarbocina(): void {

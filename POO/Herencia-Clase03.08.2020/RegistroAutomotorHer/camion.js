@@ -19,19 +19,22 @@ var vehiculo_1 = require("./vehiculo");
 //Uso "export" para utilizar la clase en otra y uso "extends" para que herede de Vehículo.
 var Camion = /** @class */ (function (_super) {
     __extends(Camion, _super);
-    function Camion(marca, mod, color, velocidad, carga, cantidad) {
+    function Camion(marca, mod, color, velocidad, carga, cantAcoplados) {
         var _this = _super.call(this, marca, mod, color, velocidad) || this;
         _this.cantAcopladosDefault = 0;
         _this.cargaToneladas = carga;
         _this.cantidadRuedas = 4;
-        if (cantidad != undefined) {
-            _this.cantAcoplados = cantidad;
+        if (cantAcoplados != undefined) {
+            _this.cantAcoplados = cantAcoplados;
         }
         else {
             _this.cantAcoplados = _this.cantAcopladosDefault;
         }
         return _this;
     }
+    Camion.prototype.darAltaCamion = function (marca, mod, color, velocidad, carga, cantAcoplados) {
+        return new Camion(marca, mod, color, velocidad, carga, cantAcoplados);
+    };
     //Funciones Get y Set
     Camion.prototype.getCantAcoplados = function () {
         return this.cantAcoplados;

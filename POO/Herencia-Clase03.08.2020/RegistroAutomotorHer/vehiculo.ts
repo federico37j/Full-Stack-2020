@@ -2,11 +2,11 @@ export class Vehiculo {
     //Declaración de variables
     protected cantidadRuedas: number;
     protected cantidadPuertas: number;
-    private enMarcha: boolean;
     protected color: string;
     protected modelo: number;
     protected marca: string;
     protected velocidadMax: number;
+    private enMarcha: boolean;
 
     public constructor(marca: string, mod: number, color: string, velocidad: number) {
         this.marca = marca;

@@ -8,16 +8,20 @@ export class Camion extends Vehiculo {
     private cargaToneladas: number;
     private cantAcopladosDefault: number = 0;
 
-    public constructor(marca: string, mod: number, color: string, velocidad: number, carga: number, cantidad?: number) {
+    public constructor(marca: string, mod: number, color: string, velocidad: number, carga: number, cantAcoplados?: number) {
         super(marca, mod, color, velocidad);
         this.cargaToneladas = carga;
         this.cantidadRuedas = 4;
 
-        if (cantidad != undefined) {
-            this.cantAcoplados = cantidad;
+        if (cantAcoplados != undefined) {
+            this.cantAcoplados = cantAcoplados;
         } else {
             this.cantAcoplados = this.cantAcopladosDefault;
         }
+    }
+
+    public darAltaCamion(marca: string, mod: number, color: string, velocidad: number, carga: number, cantAcoplados: number): Camion {
+        return new Camion(marca, mod, color, velocidad, carga, cantAcoplados);
     }
 
     //Funciones Get y Set

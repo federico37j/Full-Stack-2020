@@ -22,6 +22,7 @@ var Auto = /** @class */ (function (_super) {
     function Auto(marca, mod, color, velocidad, cantidadPuertas) {
         var _this = _super.call(this, marca, mod, color, velocidad) || this;
         _this.cantidadRuedas = 4;
+        _this.apretarEmbrague = false;
         //La variable cantidadPuertas es un parámetro opcional, sino se carga en el constructor queda por defecto lo que contenga "puertasDefecto".
         if (cantidadPuertas != undefined) {
             _this.cantidadPuertas = cantidadPuertas;
@@ -31,6 +32,17 @@ var Auto = /** @class */ (function (_super) {
         }
         return _this;
     }
+    Auto.prototype.darAltaAuto = function (marca, mod, color, velocidad, cantidadPuertas) {
+        return new Auto(marca, mod, color, velocidad, cantidadPuertas);
+    };
+    Auto.prototype.arrancarAuto = function () {
+        if (this.apretarEmbrague) {
+            this.apretarEmbrague = false;
+        }
+        else {
+            this.apretarEmbrague = true;
+        }
+    };
     return Auto;
 }(vehiculo_1.Vehiculo)); //FIN CLASE AUTO
 exports.Auto = Auto;

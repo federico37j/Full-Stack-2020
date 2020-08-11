@@ -19,8 +19,9 @@ var vehiculo_1 = require("./vehiculo");
 //Uso "export" para utilizar la clase en otra y uso "extends" para que herede de Vehículo.
 var Moto = /** @class */ (function (_super) {
     __extends(Moto, _super);
-    function Moto(marca, mod, color, velocidad) {
+    function Moto(marca, mod, color, velocidad, cilindrada) {
         var _this = _super.call(this, marca, mod, color, velocidad) || this;
+        _this.cilindrada = cilindrada;
         _this.cantidadRuedas = 2;
         _this.cascoPuesto = false;
         return _this;
@@ -33,6 +34,9 @@ var Moto = /** @class */ (function (_super) {
         else {
             console.log("Pónganse el casco y vuelva a intentar");
         }
+    };
+    Moto.prototype.darAltaMoto = function (marca, mod, color, velocidad, cilindrada) {
+        return new Moto(marca, mod, color, velocidad, cilindrada);
     };
     Moto.prototype.tocarbocina = function () {
         console.log("Suena bocina");

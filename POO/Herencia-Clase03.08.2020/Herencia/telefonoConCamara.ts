@@ -28,4 +28,5 @@ miCel.prenderApagar();
 miCel.mandarMensaje("Mensaje", 251561251);
 console.log("La camara contiene", miCel.getCantidadPixeles(), "pixeles");
 miCel.sacarFoto();
+miCel.prenderApagarLinterna();
 console.log(miCel);

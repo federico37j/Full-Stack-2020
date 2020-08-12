@@ -12,25 +12,16 @@ var Telefono = /** @class */ (function () {
             console.log("MENSAJE ENVIADO", msg, "numero", numero);
             return true;
         }
+        return false;
     };
     Telefono.prototype.hacerLlamada = function () {
         console.log("MARCANDO...");
     };
     Telefono.prototype.prenderApagar = function () {
-        if (this.estaPrendido) {
-            this.estaPrendido = false;
-        }
-        else {
-            this.estaPrendido = true;
-        }
+        this.estaPrendido = !this.estaPrendido;
     };
     Telefono.prototype.prenderApagarLinterna = function () {
-        if (this.linternaPrendida) {
-            this.linternaPrendida = false;
-        }
-        else {
-            this.linternaPrendida = true;
-        }
+        this.linternaPrendida = !this.linternaPrendida;
     };
     Telefono.prototype.setBateria = function (tamanio) {
         this.bateriaActual = tamanio;

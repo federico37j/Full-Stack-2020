@@ -15,7 +15,7 @@ export class Telefono {
             console.log("MENSAJE ENVIADO", msg, "numero", numero);
             return true;
         }
-
+        return false;
     }
 
     public hacerLlamada(): void {
@@ -23,19 +23,13 @@ export class Telefono {
     }
 
     public prenderApagar(): void {
-        if (this.estaPrendido) {
-            this.estaPrendido = false;
-        } else {
-            this.estaPrendido = true;
-        }
+        this.estaPrendido = !this.estaPrendido;
+
     }
 
     public prenderApagarLinterna(): void {
-        if (this.linternaPrendida) {
-            this.linternaPrendida = false;
-        } else {
-            this.linternaPrendida = true;
-        }
+        this.linternaPrendida = !this.linternaPrendida;
+
     }
 
     public setBateria(tamanio: number): void {

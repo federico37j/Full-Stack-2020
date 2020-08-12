@@ -32,10 +32,11 @@ var TelefonoConCamara = /** @class */ (function (_super) {
     return TelefonoConCamara;
 }(telefono_1.Telefono));
 var pixeles = 48;
-var bateria = 4000;
+var bateria = 15;
 var miCel = new TelefonoConCamara(pixeles, bateria);
 miCel.prenderApagar();
 miCel.mandarMensaje("Mensaje", 251561251);
 console.log("La camara contiene", miCel.getCantidadPixeles(), "pixeles");
 miCel.sacarFoto();
+miCel.prenderApagarLinterna();
 console.log(miCel);

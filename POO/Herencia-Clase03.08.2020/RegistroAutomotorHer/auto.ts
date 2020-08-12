@@ -19,10 +19,6 @@ export class Auto extends Vehiculo {
 
     }
 
-    public darAltaAuto(marca: string, mod: number, color: string, velocidad: number, cantidadPuertas: number): Auto {
-        return new Auto(marca, mod, color, velocidad, cantidadPuertas);
-    }
-
     public arrancarAuto(): void {
         if (this.apretarEmbrague) {
             this.apretarEmbrague = false;

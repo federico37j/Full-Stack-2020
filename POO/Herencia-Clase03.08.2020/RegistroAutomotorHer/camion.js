@@ -32,9 +32,6 @@ var Camion = /** @class */ (function (_super) {
         }
         return _this;
     }
-    Camion.prototype.darAltaCamion = function (marca, mod, color, velocidad, carga, cantAcoplados) {
-        return new Camion(marca, mod, color, velocidad, carga, cantAcoplados);
-    };
     //Funciones Get y Set
     Camion.prototype.getCantAcoplados = function () {
         return this.cantAcoplados;

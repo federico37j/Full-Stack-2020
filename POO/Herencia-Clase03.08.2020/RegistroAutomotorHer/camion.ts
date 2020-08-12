@@ -20,10 +20,6 @@ export class Camion extends Vehiculo {
         }
     }
 
-    public darAltaCamion(marca: string, mod: number, color: string, velocidad: number, carga: number, cantAcoplados: number): Camion {
-        return new Camion(marca, mod, color, velocidad, carga, cantAcoplados);
-    }
-
     //Funciones Get y Set
     public getCantAcoplados(): number {
         return this.cantAcoplados;

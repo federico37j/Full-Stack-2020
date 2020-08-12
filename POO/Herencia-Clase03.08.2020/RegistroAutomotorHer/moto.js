@@ -35,9 +35,6 @@ var Moto = /** @class */ (function (_super) {
             console.log("Pónganse el casco y vuelva a intentar");
         }
     };
-    Moto.prototype.darAltaMoto = function (marca, mod, color, velocidad, cilindrada) {
-        return new Moto(marca, mod, color, velocidad, cilindrada);
-    };
     Moto.prototype.tocarbocina = function () {
         console.log("Suena bocina");
     };

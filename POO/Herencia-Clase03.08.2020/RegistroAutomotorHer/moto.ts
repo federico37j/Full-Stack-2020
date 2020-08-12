@@ -23,10 +23,6 @@ export class Moto extends Vehiculo {
         }
     }
 
-    public darAltaMoto(marca: string, mod: number, color: string, velocidad: number, cilindrada: number): Moto {
-        return new Moto(marca, mod, color, velocidad, cilindrada);
-    }
-
     public tocarbocina(): void {
         console.log("Suena bocina");
     }

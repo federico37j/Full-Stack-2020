@@ -32,9 +32,6 @@ var Auto = /** @class */ (function (_super) {
         }
         return _this;
     }
-    Auto.prototype.darAltaAuto = function (marca, mod, color, velocidad, cantidadPuertas) {
-        return new Auto(marca, mod, color, velocidad, cantidadPuertas);
-    };
     Auto.prototype.arrancarAuto = function () {
         if (this.apretarEmbrague) {
             this.apretarEmbrague = false;

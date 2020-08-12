@@ -9,9 +9,6 @@ var camion_1 = require("./camion");
 var RegistroAutomotor = /** @class */ (function () {
     function RegistroAutomotor(lectorArchivos, auto, moto, camion) {
         this.lectorArchivos = lectorArchivos;
-        this.auto = auto;
-        this.moto = moto;
-        this.camion = camion;
         this.vehiculos = [];
         this.cambiarAObjeto('RegistroAutomotorHer/auto.txt');
     }
@@ -28,13 +25,13 @@ var RegistroAutomotor = /** @class */ (function () {
     RegistroAutomotor.prototype.darAltaVehiculo = function (input) {
         switch (input) {
             case 1:
-                this.vehiculos.push(this.auto.darAltaAuto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "), readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "), readlineSync.questionInt("(5) Ingrese la cantidad de puertas: ")));
+                this.vehiculos.push(new auto_1.Auto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "), readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "), readlineSync.questionInt("(5) Ingrese la cantidad de puertas: ")));
                 break;
             case 2:
-                this.vehiculos.push(this.moto.darAltaMoto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "), readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "), readlineSync.questionInt("(5) Ingrese la cilindrada: ")));
+                this.vehiculos.push(new moto_1.Moto(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "), readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "), readlineSync.questionInt("(5) Ingrese la cilindrada: ")));
                 break;
             case 3:
-                this.vehiculos.push(this.camion.darAltaCamion(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "), readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "), readlineSync.questionInt("(5) Ingrese la carga maxima en toneladas: "), readlineSync.questionInt("(6) Ingrese cantidad de acoplados: ")));
+                this.vehiculos.push(new camion_1.Camion(readlineSync.question("(1) Ingrese la marca: "), readlineSync.questionInt("(2) Ingrese el modelo: "), readlineSync.question("(3) Ingrese el color: "), readlineSync.questionInt("(4) Ingrese la velocidad maxima: "), readlineSync.questionInt("(5) Ingrese la carga maxima en toneladas: "), readlineSync.questionInt("(6) Ingrese cantidad de acoplados: ")));
                 break;
         }
     };

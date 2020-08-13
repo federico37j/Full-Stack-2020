@@ -8,21 +8,19 @@ import { Inmueble } from "./inmueble";
 class Oficina extends Inmueble {
     private nombreSede: string;
     private direccion: string;
-    private empleado: Empleado;
     private empleados: Empleado[];
 
-    public constructor(nombreSede: string, direccion: string, ubicacion: string, metrosCuadrados: number, cantHabitaciones: number, empleado: Empleado) {
+    public constructor(nombreSede: string, direccion: string, ubicacion: string, metrosCuadrados: number, cantHabitaciones: number) {
         super(ubicacion, metrosCuadrados, cantHabitaciones);
         this.nombreSede = nombreSede;
         this.direccion = direccion;
-        this.empleado = empleado;
         this.empleados = [];
         this.espacioVerde = false;
     }
 
     //Llamo a la función(crearEmpleado) de la clase Empleado para dar de alta uno y lo guardo en el arreglo
     public darAltaEmpleado(): void {
-        this.empleados.push(this.empleado.crearEmpleado(this.empleados, readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "),
+        this.empleados.push(new Empleado(readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "),
             readlineSync.questionInt("(3) Ingrese el DNI: "), readlineSync.questionInt("(4) Ingrese el edad: "), readlineSync.question("(5) Ingrese el cargo: ")));
         console.log("¡Registro cargado con éxito!");
     }
@@ -69,7 +67,7 @@ class Oficina extends Inmueble {
     //Llamo a la función(actualizarEmpleado) de la clase Empleado para actualizar uno, pasandole por parametro nombre/apellido/dni/edad/cargo/salario
     private actualizarUsuario(empleado: Empleado): void {
         let resultado: number;
-        resultado = this.empleado.actualizarEmpleado(empleado, readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "),
+        resultado = empleado.actualizarEmpleado(empleado, readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "),
             readlineSync.questionInt("(3) Ingrese el DNI: "), readlineSync.questionInt("(4) Ingrese la edad: "), readlineSync.question("(5) Ingrese el cargo: "),
             readlineSync.questionInt("(6) Ingrese el salario: "));
         if (resultado > 0) {
@@ -79,6 +77,7 @@ class Oficina extends Inmueble {
         }
 
     }
+    
 
     //Métodos get
     public getNombreSede(): string {
@@ -91,8 +90,8 @@ class Oficina extends Inmueble {
 
 }//FIN CLASE OFICINA
 
-let miEmpleado = new Empleado(0, "Pepe", "Alvarez", 32323232, 25, "Scrum Master");
-let oficina = new Oficina("Onirus", "25 de mayo 168", "Tandil", 150, 4, miEmpleado);
+let miEmpleado = new Empleado("Pepe", "Alvarez", 32323232, 25, "Scrum Master");
+let oficina = new Oficina("Onirus", "25 de mayo 168", "Tandil", 150, 4);
 
 let input: number = readlineSync.questionInt("OPCIONES\n(1) DAR ALTA UN EMPLEADO\n(2) LISTAR\n(3) SALIR\nTu respuesta: ");
 let salir: boolean = false;

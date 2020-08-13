@@ -1,6 +1,5 @@
 export class Empleado {
     //Declaración de variables
-    private id: number;
     private nombre: string;
     private apellido: string;
     private edad: number;
@@ -9,8 +8,7 @@ export class Empleado {
     private salario: number;
     private fechaIngreso: string;
 
-    public constructor(id: number, nombre: string, apellido: string, dni: number, edad: number, cargo: string, salario?: number) {
-        this.id = id;
+    public constructor(nombre: string, apellido: string, dni: number, edad: number, cargo: string, salario?: number) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -23,11 +21,6 @@ export class Empleado {
             this.salario = salario;
         }
         this.fechaIngreso = String(new Date());
-    }
-
-    public crearEmpleado(empleados: Empleado[], nombre: string, apellido: string, dni: number, edad: number, cargo: string): Empleado {
-        let id: number = empleados.length + 1;
-        return new Empleado(id, nombre, apellido, dni, edad, cargo);
     }
 
     //Se actualiza el empleado pasado por parámetro con los métodos set de esta clase
@@ -44,14 +37,6 @@ export class Empleado {
     }
 
     //Métodos get y set
-    public getId(): number {
-        return this.id;
-    }
-
-    public setId(id: number): void {
-        this.id = id;
-    }
-
     public getNombre(): string {
         return this.nombre;
     }

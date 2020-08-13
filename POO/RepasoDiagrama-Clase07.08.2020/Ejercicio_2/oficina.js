@@ -20,18 +20,17 @@ var empleado_1 = require("./empleado");
 var inmueble_1 = require("./inmueble");
 var Oficina = /** @class */ (function (_super) {
     __extends(Oficina, _super);
-    function Oficina(nombreSede, direccion, ubicacion, metrosCuadrados, cantHabitaciones, empleado) {
+    function Oficina(nombreSede, direccion, ubicacion, metrosCuadrados, cantHabitaciones) {
         var _this = _super.call(this, ubicacion, metrosCuadrados, cantHabitaciones) || this;
         _this.nombreSede = nombreSede;
         _this.direccion = direccion;
-        _this.empleado = empleado;
         _this.empleados = [];
         _this.espacioVerde = false;
         return _this;
     }
     //Llamo a la función(crearEmpleado) de la clase Empleado para dar de alta uno y lo guardo en el arreglo
     Oficina.prototype.darAltaEmpleado = function () {
-        this.empleados.push(this.empleado.crearEmpleado(this.empleados, readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "), readlineSync.questionInt("(3) Ingrese el DNI: "), readlineSync.questionInt("(4) Ingrese el edad: "), readlineSync.question("(5) Ingrese el cargo: ")));
+        this.empleados.push(new empleado_1.Empleado(readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "), readlineSync.questionInt("(3) Ingrese el DNI: "), readlineSync.questionInt("(4) Ingrese el edad: "), readlineSync.question("(5) Ingrese el cargo: ")));
         console.log("¡Registro cargado con éxito!");
     };
     //Muestro el arreglo por consola
@@ -72,7 +71,7 @@ var Oficina = /** @class */ (function (_super) {
     //Llamo a la función(actualizarEmpleado) de la clase Empleado para actualizar uno, pasandole por parametro nombre/apellido/dni/edad/cargo/salario
     Oficina.prototype.actualizarUsuario = function (empleado) {
         var resultado;
-        resultado = this.empleado.actualizarEmpleado(empleado, readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "), readlineSync.questionInt("(3) Ingrese el DNI: "), readlineSync.questionInt("(4) Ingrese la edad: "), readlineSync.question("(5) Ingrese el cargo: "), readlineSync.questionInt("(6) Ingrese el salario: "));
+        resultado = empleado.actualizarEmpleado(empleado, readlineSync.question("(1) Ingrese el nombre: "), readlineSync.question("(2) Ingrese el apellido: "), readlineSync.questionInt("(3) Ingrese el DNI: "), readlineSync.questionInt("(4) Ingrese la edad: "), readlineSync.question("(5) Ingrese el cargo: "), readlineSync.questionInt("(6) Ingrese el salario: "));
         if (resultado > 0) {
             console.log("¡Operación realizada con éxito!");
         }
@@ -89,9 +88,8 @@ var Oficina = /** @class */ (function (_super) {
     };
     return Oficina;
 }(inmueble_1.Inmueble)); //FIN CLASE OFICINA
-var miEmpleado = new empleado_1.Empleado(0, "Pepe", "Alvarez", 32323232, 25, "Scrum Master");
-var oficina = new Oficina("Onirus", "25 de mayo 168", "Tandil", 150, 4, miEmpleado);
-console.log(oficina);
+var miEmpleado = new empleado_1.Empleado("Pepe", "Alvarez", 32323232, 25, "Scrum Master");
+var oficina = new Oficina("Onirus", "25 de mayo 168", "Tandil", 150, 4);
 var input = readlineSync.questionInt("OPCIONES\n(1) DAR ALTA UN EMPLEADO\n(2) LISTAR\n(3) SALIR\nTu respuesta: ");
 var salir = false;
 //MENÚ

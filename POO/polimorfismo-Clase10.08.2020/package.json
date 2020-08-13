@@ -1,0 +1,13 @@
+{
+  "name": "ejercicio1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "autoCarrera": "tsc Ejercicio1-EnClase/autoCarreras.ts && node Ejercicio1-EnClase/autoCarreras.js",
+    "libro": "tsc Ejercicio2-EnClase/libroEconomia.ts && node Ejercicio2-EnClase/libroEconomia.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

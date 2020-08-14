@@ -21,9 +21,12 @@ var CajaAhorroPFijoUVA = /** @class */ (function (_super) {
         var _this = _super.call(this, numero, titular, saldo, cotizacion, movimiento) || this;
         _this.porcentajeAnual = porcentajeAnual;
         _this.porcentajeInflacion = porcentajeInflacion;
-        _this.estado = false;
+        _this.cambiarEstado();
         return _this;
     }
+    /* Se divide el porcentaje anual por la cantidad de meses para obtener el porcentaje mensual y luego a eso se lo divide por 100
+     se hace el mismo procedimiento con porcentaje de inflación y ambos resultados se suman y se multiplican por el importe ingresado
+     por parámetro */
     CajaAhorroPFijoUVA.prototype.calcularGanancia = function (importe) {
         var meses = 12;
         var resultado = (this.porcentajeAnual / meses) / 100;

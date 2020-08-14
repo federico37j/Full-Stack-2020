@@ -29,7 +29,6 @@ class HomeBanking {
                 tipo = "ALTA PLAZO FIJO UVA";
                 break;
         }
-
         return new Movimiento(String(new Date()), tipo, importe, saldo);
     }
 
@@ -38,7 +37,8 @@ class HomeBanking {
         let titular: string = this.cuenta.getTitular();
         let saldo: number = this.cuenta.getSaldo();
         let cotizacion: number = this.cuenta.getCotizacionDelDia();
-        let movimiento: Movimiento = this.tipoDeMovimiento(input, readlineSync.questionInt("Ingrese el monto a invertir: "), saldo);
+        let monto: number = readlineSync.questionInt("Ingrese el monto a invertir: ");
+        let movimiento: Movimiento = this.tipoDeMovimiento(input, monto, saldo - monto);
         switch (input) {
             case 1:
                 this.transaccionesActuales.push(new CajaAhorroPFijoTradicional(numero, titular, saldo, cotizacion, movimiento,
@@ -65,7 +65,8 @@ class HomeBanking {
         return this.transaccionesActuales;
     }
 
-}
+}// FIN CLASE HOME BANKING
+
 //CUENTA
 let miMovAlta = new Movimiento("Fri Aug 14 2020 11:27:23 GMT-0300 (GMT-03:00)", "ALTA DE CUENTA", 100000, 100000);
 let miCuenta = new Cuenta(658321, "Federico", 100000, 73, miMovAlta);

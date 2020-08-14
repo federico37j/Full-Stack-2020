@@ -20,9 +20,11 @@ var CajaAhorroPFijoTradicional = /** @class */ (function (_super) {
     function CajaAhorroPFijoTradicional(numero, titular, saldo, cotizacion, movimiento, porcentajeAnual) {
         var _this = _super.call(this, numero, titular, saldo, cotizacion, movimiento) || this;
         _this.porcentajeAnual = porcentajeAnual;
-        _this.estado = false;
+        _this.cambiarEstado();
         return _this;
     }
+    /* Se divide el porcentaje anual por la cantidad de meses para obtener el porcentaje mensual y luego a eso se lo divide por 100 y
+    se lo multiplica por el importe que se ingresa por parámetro */
     CajaAhorroPFijoTradicional.prototype.calcularGanancia = function (importe) {
         var meses = 12;
         this.estado = true;

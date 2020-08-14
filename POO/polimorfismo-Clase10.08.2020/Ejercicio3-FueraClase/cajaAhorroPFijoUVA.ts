@@ -9,9 +9,12 @@ export class CajaAhorroPFijoUVA extends Cuenta {
         super(numero, titular, saldo, cotizacion, movimiento);
         this.porcentajeAnual = porcentajeAnual;
         this.porcentajeInflacion = porcentajeInflacion;
-        this.estado = false;
+        this.cambiarEstado();
     }
 
+    /* Se divide el porcentaje anual por la cantidad de meses para obtener el porcentaje mensual y luego a eso se lo divide por 100
+     se hace el mismo procedimiento con porcentaje de inflación y ambos resultados se suman y se multiplican por el importe ingresado
+     por parámetro */
     public calcularGanancia(importe: number): number {
         let meses: number = 12;
         let resultado: number = (this.porcentajeAnual / meses) / 100;

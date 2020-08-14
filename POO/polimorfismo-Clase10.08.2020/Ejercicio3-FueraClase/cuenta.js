@@ -8,10 +8,14 @@ var Cuenta = /** @class */ (function () {
         this.saldo = saldo;
         this.cotizacionDelDia = cotizacionDelDia;
         this.movimiento = movimiento;
-        this.estado = true;
+        this.estado = false;
     }
+    //Se ingresa un importe por parámetro y se multiplica por la cotización del día
     Cuenta.prototype.calcularGanancia = function (importe) {
         return this.cotizacionDelDia * importe;
+    };
+    Cuenta.prototype.cambiarEstado = function () {
+        this.estado = !this.estado;
     };
     Cuenta.prototype.getNumero = function () {
         return this.numero;

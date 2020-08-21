@@ -1,0 +1,22 @@
+Abarth,2020,blanco,200
+Alfa Romeo,2014,verde,200
+Aston Martin,2020,negro,200
+BMW,2018,rojo,200
+Caterham,2020,azul,200
+Chevrolet,2005,rojo,200
+Citroen,2020,azul,200
+Ferrari,2020,rojo,200
+Fiat,1998,azul,200
+Ford,1994,rojo,120
+Honda,2020,azul,200
+Infiniti,2020,negro,200
+Iveco,2016,rojo,200
+Jaguar,2020,azul,200
+Jeep,2020,amarillo,200
+Lamborghini,2020,negro,200
+Maserati,2020,negro,200
+Mercedes-Benz,2020,blanco,200
+Nissan,2010,azul,200
+Peugeot,2020,rojo,200
+Renault,2011,gris,200
+Toyota,2012,negro,200

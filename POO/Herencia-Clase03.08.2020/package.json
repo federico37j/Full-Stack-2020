@@ -1,0 +1,20 @@
+{
+  "name": "herencia-clase03.08.2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "teleHerCam": "tsc Herencia/telefonoConCamara.ts && node Herencia/telefonoConCamara.js",
+    "teleHerRad": "tsc Herencia/telefonoConRadio.ts && node Herencia/telefonoConRadio.js",
+    "vehiculosHer": "tsc RegistroAutomotorHer/RegAutomotor.ts && node RegistroAutomotorHer/RegAutomotor.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27"
+  }
+}

@@ -1,0 +1,17 @@
+1-Enumerar tres funcionalidades de NPM y describirlas:
+- Permite descargar librerías: Con el comando npm install "librería" se encarga de buscar en la nube la librería y descargarla.
+- Permite eliminar dependencias: Con el comando npm uninstall "Dependencia" se puede eliminar una dependencia ya instalada con anterioridad.
+- Permite definir tareas: Con el comando npm run "tarea” podemos llamar a una tarea definida en el package.json.
+
+2-¿Cuál es el beneficio de usar un lenguaje con tipos?
+- El sistema sabe exactamente cuanta memoria tiene que reservar para esa variable.
+- La revisión de los tipos hace que gran parte de los errores que surjan se puedan detectar al momento de escribir el código.
+
+3-¿A qué se le llama variable interna? ¿Por qué internas?
+Se le llama a la variable declarada como prívate, que puede ser únicamente accedida y alterada por un método del objeto.
+
+4-Explicar la diferencia entre composición y herencia:
+En la herencia las clases hijas son una clase más específica y en composición son clases más sencillas que componen una clase más compleja.
+
+5-Explicar el mecanismo que provee TypeScript para manejar casos en donde los parámetros que le llegan a un método son inválidos
+-

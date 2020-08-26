@@ -1,0 +1,23 @@
+• ¿Para qué sirve una task de NPM?
+- Para evitar escribir de forma repetitiva los mismos comandos.
+
+• ¿Qué pasa cuando se corre el comando “tsc”?
+- El comando tsc se encarga de hacer la traducción de TypeScript a JavaScript. 
+
+• ¿Cómo está organizada una clase?
+- Es una entidad que agrupa variables y métodos.
+
+• ¿Es correcto que un método auxiliar de una clase sea público? ¿Por qué?
+- Es falso, el método auxiliar es para implementar funcionalidad interna que no es necesario que se pueda acceder desde afuera, debe ser privado.
+
+• Enumerar las características de una interfaz
+- Es una clase en la que solo se definen métodos que por defecto son public.
+- No se implementan nada.
+- Le dice como se tienen que comportar a las clases que la implementan.
+- No es recomendable definir variables porque quedan public y de pierde el encapsulamiento. 
+
+• Nombrar al menos dos patrones de diseño, y en qué casos se utilizan
+-
+
+• ¿Cómo se hace para definir un error nuevo en TypeScript?
+- Se crea una nueva clase CustomError que extiende de Error.

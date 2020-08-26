@@ -1,0 +1,13 @@
+{
+  "name": "errores",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "registro": "tsc Vehiculo/RegAutomotor.ts && node Vehiculo/RegAutomotor.js",
+    "smartphone": "tsc telefono/smartPhone.ts && node telefono/smartPhone.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

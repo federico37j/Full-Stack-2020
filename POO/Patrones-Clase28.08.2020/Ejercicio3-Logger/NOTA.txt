@@ -1,0 +1,6 @@
+Implemente la clase Logger utilizando el patrón de diseño Singleton por lo cual el constructor 
+es privado y se utiliza el método getLogger para obtener la única instancia de esta clase. En 
+el método logInfo uso la clase Date para obtener la fecha actual agregándola a las operaciones 
+que se producen y también uso createWriteStream para poder ir agregando las líneas en el archivo 
+txt. La clase Logger también la utilizo en la clase Carpeta (Ejercicio 1 – Sistema de archivos)
+para darle seguimiento a cuando se crea una carpeta o archivo.

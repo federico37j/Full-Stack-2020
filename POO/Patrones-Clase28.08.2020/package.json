@@ -1,0 +1,16 @@
+{
+  "name": "patrones-clase28.08.2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "registroAutomotor": "tsc Ejercicio2-Auto/regAutomotor.ts && node Ejercicio2-Auto/regAutomotor.js",
+    "sistemaDeArchivos": "tsc Ejercicio1-SistemaArchivos/carpeta.ts && node Ejercicio1-SistemaArchivos/carpeta.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.6.2"
+  }
+}

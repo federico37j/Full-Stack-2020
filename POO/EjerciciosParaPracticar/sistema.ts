@@ -71,10 +71,15 @@ class Sistema implements plantilla {
     }
 
     public actualizarTxt(): void {
-        if (this.prodVendido.length > 0) {
+        if (this.prodVendido.length == 0) {
+            throw new Error('No hay nada para agregar');
+        } else {
             this.pasarATxt(this.prodVendido, "./vendido.txt");
         }
-        if (this.stock.length > 0) {
+
+        if (this.stock.length == 0) {
+            throw new Error('No hay nada para agregar');
+        } else {
             this.pasarATxt(this.stock, "./disponible.txt");
         }
     }
@@ -161,7 +166,11 @@ while (salir != true) {
     if (salir != true) {
         input = readlineSync.questionInt("OPCIONES:\n(1) AGREGAR PRODUCTO\n(2) BUSCAR PARA COMPRAR\n(3) LISTAR\n(4) SALIR\nTu respuesta: ");
     } else {
-        sistema.actualizarTxt();
+        try {
+            sistema.actualizarTxt();
+        } catch (error) {
+            console.log('Ocurrió un error esperado, el arreglo está vacío.');
+        }
         console.log("¡Hasta luego!");
     }
 }
